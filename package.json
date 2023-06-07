@@ -14,7 +14,7 @@
   },
   "scripts": {
     "build": "tsc",
-    "prettier": "npx prettier \"**/*.ts\" --write",
+    "prettier": "prettier \"**/*.ts\" --write",
     "lint": "eslint ./src/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
