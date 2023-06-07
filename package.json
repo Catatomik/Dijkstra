@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Dijkstra with Fibonacci heap typescript/Node.js implementation",
   "main": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Catatomik/Dijkstra.git"
