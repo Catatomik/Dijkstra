@@ -1,5 +1,5 @@
 {
-  "name": "dijkstra",
+  "name": "@catatomik/dijkstra",
   "version": "1.0.0",
   "description": "Dijkstra with Fibonacci heap typescript/Node.js implementation",
   "main": "lib/main.js",
@@ -26,6 +26,6 @@
     "@tyriar/fibonacci-heap": "^2.0.9"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
+    "@Catatomik:registry": "https://npm.pkg.github.com"
   }
 }
