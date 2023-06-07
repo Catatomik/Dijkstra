@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "Dijkstra with Fibonacci heap typescript/Node.js implementation",
   "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Catatomik/Dijkstra.git"
+  },
   "scripts": {
     "build": "tsc",
     "prettier": "npx prettier \"**/*.ts\" --write",
@@ -20,5 +24,8 @@
   },
   "dependencies": {
     "@tyriar/fibonacci-heap": "^2.0.9"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
