@@ -26,6 +26,6 @@
     "@tyriar/fibonacci-heap": "^2.0.9"
   },
   "publishConfig": {
-    "@Catatomik:registry": "https://npm.pkg.github.com"
+    "@catatomik:registry": "https://npm.pkg.github.com"
   }
 }
