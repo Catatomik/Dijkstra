@@ -16,7 +16,8 @@
     "build": "tsc",
     "prettier": "prettier \"**/*.ts\" --write",
     "lint": "eslint ./src/",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "npm run build"
   },
   "author": "Catatomik",
   "license": "MIT",
