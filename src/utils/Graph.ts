@@ -104,7 +104,7 @@ export class Graph<N extends node = node> {
   /**
    * @description The nodes of the graph
    */
-  get nodes(): Array<N> {
+  get nodes(): N[] {
     return Array.from(this.nodesIterator);
   }
 
@@ -127,7 +127,7 @@ export class Graph<N extends node = node> {
    * @returns The neighbors of the node n
    * @param n A node of the graph
    */
-  neighbors(n: N): Array<N> {
+  neighbors(n: N): N[] {
     return Array.from(this.neighborsIterator(n) ?? []);
   }
 
@@ -142,8 +142,8 @@ export class Graph<N extends node = node> {
   /**
    * @returns The edges of the graph
    */
-  get edges(): Array<edge<N>> {
-    const edges: Array<edge<N>> = [];
+  get edges(): edge<N>[] {
+    const edges: edge<N>[] = [];
     const n = this.nodes;
     for (let x = 0; x < n.length; x++) {
       for (let y = x; y < n.length; y++) {
@@ -157,12 +157,12 @@ export class Graph<N extends node = node> {
   /**
    * @returns The arcs of the graph
    */
-  get arcs(): Array<edge<N>> {
-    const arcs: Array<edge<N>> = [];
+  get arcs(): edge<N>[] {
+    const arcs: edge<N>[] = [];
     const n = this.nodes;
-    for (let x = 0; x < n.length; x++) {
-      for (let y = 0; y < n.length; y++) {
-        if (this.arc(n[x], n[y])) arcs.push([n[x], n[y]]);
+    for (const n1 of n) {
+      for (const n2 of n) {
+        if (this.arc(n1, n2)) arcs.push([n1, n2]);
       }
     }
 
