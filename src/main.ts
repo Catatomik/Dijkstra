@@ -15,7 +15,7 @@ export interface DijkstraOptions {
  */
 export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   G: G,
-  [s]: [N]
+  [s]: [N],
 ): [Map<N, number>, Map<N, N>];
 /**
  * @description Generate the shortest paths from source node `s` to every nodes in graph `G`, considering options `O`.
@@ -27,7 +27,7 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
 export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   G: G,
   [s]: [N],
-  O: DijkstraOptions
+  O: DijkstraOptions,
 ): [Map<N, number>, Map<N, N>];
 /**
  * @description Computes the shortest path from source node `s` to target node `t` on graph `G`.
@@ -38,7 +38,7 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
  */
 export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   G: G,
-  [s, t]: [N, N]
+  [s, t]: [N, N],
 ): path<N>;
 /**
  * @description Computes the shortest path from source node `s` to target node `t` on graph `G`, considering options `O`.
@@ -51,12 +51,12 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
 export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   G: G,
   [s, t]: [N, N],
-  O: DijkstraOptions
+  O: DijkstraOptions,
 ): path<N>;
 export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   G: G,
   [s, t]: [N, N] | [N],
-  O?: DijkstraOptions
+  O?: DijkstraOptions,
 ): path<N> | [Map<N, number>, Map<N, nodeOrNullNode<N>>] {
   const dist = new Map<N, number>();
   const prev = new Map<N, nodeOrNullNode<N>>();
@@ -111,7 +111,7 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
 export function tracePath<N extends node>(
   prev: Map<N, nodeOrNullNode<N>>,
   target: N,
-  source?: N
+  source?: N,
 ): path<N> {
   let path: path<N> = [];
   let e: nodeOrNullNode<N> = target;
