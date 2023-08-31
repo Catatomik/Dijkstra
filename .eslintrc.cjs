@@ -8,6 +8,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: true,
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     tsconfigRootDir: __dirname,
   },
   plugins: ['@typescript-eslint'],
