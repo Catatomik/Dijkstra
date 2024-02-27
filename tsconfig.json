@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "./lib",
-    "moduleResolution": "Node",
+    "moduleResolution": "Node10",
     "module": "CommonJS",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
@@ -15,6 +15,6 @@
   },
   "include": [
     "./src/**/*",
-    ".eslintrc.cjs"
+    "eslint.config.mjs"
   ]
 }
