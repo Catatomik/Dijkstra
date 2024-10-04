@@ -240,7 +240,7 @@ export class WeightedGraph<N extends node = node> extends Graph<N> {
 
   weight(n1: N, n2: N): number {
     if (!this.arc(n1, n2)) throw new Error("Invalid nodes");
-    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+     
     return this.weights.get(`${n1}-${n2}`)!;
   }
 }
