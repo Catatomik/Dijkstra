@@ -4,7 +4,6 @@ import eslint from "@eslint/js";
 import tseslint from "typescript-eslint";
 
 export default tseslint.config({
-  // @ts-ignore
   files: ["**/*.ts"],
   extends: [
     eslint.configs.recommended,
