@@ -13,10 +13,10 @@ export interface DijkstraOptions {
  * @param s Source node
  * @returns First, the distances from source node to considered node. Secondly, an array that traces downwards the shortest path from considered node to source node.
  */
-export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
-  G: G,
-  [s]: [N],
-): [Map<N, number>, Map<N, N>];
+export function Dijkstra<
+  N extends node,
+  G extends WeightedGraph<N> = WeightedGraph<N>,
+>(G: G, [s]: [N]): [Map<N, number>, Map<N, N>];
 /**
  * @description Generate the shortest paths from source node `s` to every nodes in graph `G`, considering options `O`.
  * @param G Source graph
@@ -24,11 +24,10 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
  * @param O Options for Dijkstra computing
  * @returns First, the distances from source node to considered node. Secondly, an array that traces downwards the shortest path from considered node to source node.
  */
-export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
-  G: G,
-  [s]: [N],
-  O: DijkstraOptions,
-): [Map<N, number>, Map<N, N>];
+export function Dijkstra<
+  N extends node,
+  G extends WeightedGraph<N> = WeightedGraph<N>,
+>(G: G, [s]: [N], O: DijkstraOptions): [Map<N, number>, Map<N, N>];
 /**
  * @description Computes the shortest path from source node `s` to target node `t` on graph `G`.
  * @param G Source graph
@@ -36,10 +35,10 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
  * @param t Target node
  * @returns The shortest path from s to t.
  */
-export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
-  G: G,
-  [s, t]: [N, N],
-): path<N>;
+export function Dijkstra<
+  N extends node,
+  G extends WeightedGraph<N> = WeightedGraph<N>,
+>(G: G, [s, t]: [N, N]): path<N>;
 /**
  * @description Computes the shortest path from source node `s` to target node `t` on graph `G`, considering options `O`.
  * @param G Source graph
@@ -48,12 +47,14 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
  * @param O Options for Dijkstra computing
  * @returns The shortest path from s to t.
  */
-export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
-  G: G,
-  [s, t]: [N, N],
-  O: DijkstraOptions,
-): path<N>;
-export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
+export function Dijkstra<
+  N extends node,
+  G extends WeightedGraph<N> = WeightedGraph<N>,
+>(G: G, [s, t]: [N, N], O: DijkstraOptions): path<N>;
+export function Dijkstra<
+  N extends node,
+  G extends WeightedGraph<N> = WeightedGraph<N>,
+>(
   G: G,
   [s, t]: [N, N] | [N],
   O?: DijkstraOptions,
@@ -71,24 +72,22 @@ export function Dijkstra<N extends node, G extends WeightedGraph<N>>(
   }
 
   while (!Q.isEmpty()) {
-     
     const min = Q.extractMinimum()!; // Can't be null otherwise Q is empty
-     
+
     QMapping.set(min.value!, null);
 
     if (t !== undefined && min.value === t) break;
 
-     
     for (const v of G.neighborsIterator(min.value!) ?? []) {
       /**@description New alternative distance found from min, from a + (a,b) instead of b */
-       
+
       const alt = min.key + G.weight(min.value!, v);
 
       if (O && alt > O.maxCumulWeight) continue;
 
       if (alt < (dist.get(v) ?? Infinity)) {
         dist.set(v, alt);
-         
+
         prev.set(v, min.value!);
         const vINode = QMapping.get(v);
         if (vINode != null) Q.decreaseKey(vINode, alt);

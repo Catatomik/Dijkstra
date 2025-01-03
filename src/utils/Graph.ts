@@ -240,15 +240,11 @@ export class WeightedGraph<N extends node = node> extends Graph<N> {
 
   weight(n1: N, n2: N): number {
     if (!this.arc(n1, n2)) throw new Error("Invalid nodes");
-     
+
     return this.weights.get(`${n1}-${n2}`)!;
   }
 }
 
-export type KeyOfMap<M extends Map<unknown, unknown>> = M extends Map<
-  infer K,
-  unknown
->
-  ? K
-  : never;
+export type KeyOfMap<M extends Map<unknown, unknown>> =
+  M extends Map<infer K, unknown> ? K : never;
 export type unpackGraphNode<G> = G extends Graph ? KeyOfMap<G["adj"]> : never;
